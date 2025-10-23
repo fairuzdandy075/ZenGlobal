@@ -6,7 +6,7 @@ export const Footer = () => {
   return (
     <footer className="bg-primary text-white py-12">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Logo & Description */}
           <div>
             <div className="flex items-center space-x-3 mb-4">
@@ -41,6 +41,26 @@ export const Footer = () => {
               <li>+62 822-9904-7778</li>
               <li>zengloballanguageinstitute@gmail.com</li>
             </ul>
+          </div>
+
+          {/* Google Maps - Alternative Solution */}
+          <div>
+            <h4 className="font-bold text-lg mb-4">Lokasi Kami</h4>
+            <div className="rounded-lg overflow-hidden shadow-lg bg-gray-200 aspect-video">
+              <iframe
+                src="https://maps.google.com/maps?q=-6.3204797,107.0200179&z=15&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Lokasi Zen Global Language Institute"
+              />
+            </div>
+            <p className="text-white/70 text-xs mt-2 text-center">
+              📍 Bekasi, Jawa Barat
+            </p>
           </div>
         </div>
 

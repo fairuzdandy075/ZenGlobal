@@ -61,7 +61,8 @@ const MitraPerusahaan = () => {
       companies: [
         "KUWAIT SADEN GENERAL TRADING CO. - Kuwait",
         "SAMSUNG HEAVY INDUSTRIES - Korea",
-        "TOPLACH INTERNATIONAL CO., LTD - Minneng Human Resource Management Co., Ltd"
+        "TOPLACH INTERNATIONAL CO., LTD - Minneng Human Resource Management Co., Ltd",
+        "Perusahaan Jasa Tenaga Kerja - Internasional Chen Hong"
       ]
     }
   ];

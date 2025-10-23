@@ -1,11 +1,19 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Home, ChefHat, Baby, Heart, Tractor, Wrench, Factory } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useNavigate } from "react-router-dom"; // ✅ tambahkan ini
 
 export const JobFields = () => {
   const { ref: hotelRef, isVisible: hotelVisible } = useScrollAnimation(0.2);
   const { ref: universalRef, isVisible: universalVisible } = useScrollAnimation(0.2);
   const { ref: countriesRef, isVisible: countriesVisible } = useScrollAnimation(0.2);
+  const navigate = useNavigate(); // ✅ inisialisasi navigate
+
+  const handleBackToHome = () => {
+    navigate("/"); // ✅ fungsi kembali ke halaman utama
+  };
+
   const hotelFields = [
     {
       icon: Home,
@@ -48,7 +56,19 @@ export const JobFields = () => {
   ];
 
   return (
-    <section id="jobs" className="py-20 bg-white">
+    <section id="jobs" className="py-20 bg-white relative overflow-hidden">
+      {/* ✅ Tombol kembali ke halaman utama */}
+      <div className="container mx-auto px-4 lg:px-8 mb-8">
+        <Button 
+          onClick={handleBackToHome}
+          variant="outline" 
+          className="flex items-center gap-2 bg-white/80 backdrop-blur-sm hover:bg-white hover:shadow-lg transition-all duration-300"
+        >
+          <Home className="w-4 h-4" />
+          Kembali ke Halaman Utama
+        </Button>
+      </div>
+
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">

@@ -1,13 +1,15 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Target, Clock, Award, CheckCircle, Sparkles, Users, Globe } from "lucide-react";
+import { BookOpen, Target, Clock, Award, CheckCircle, Sparkles, Users, Globe, Home } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 export const Programs = () => {
   const { ref: programsRef, isVisible: programsVisible } = useScrollAnimation(0.1);
   const { ref: benefitsRef, isVisible: benefitsVisible } = useScrollAnimation(0.1);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const navigate = useNavigate(); // Hook untuk navigasi
 
   const programs = [
     {
@@ -80,8 +82,25 @@ export const Programs = () => {
     window.open('https://api.whatsapp.com/send/?phone=6282299047778&text&type=phone_number&app_absent=0', '_blank');
   };
 
+  // Fungsi untuk kembali ke halaman utama
+  const handleBackToHome = () => {
+    navigate("/");
+  };
+
   return (
     <section id="programs" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 relative overflow-hidden">
+      {/* Tombol Kembali ke Halaman Utama */}
+      <div className="container mx-auto px-4 lg:px-8 mb-8">
+        <Button 
+          onClick={handleBackToHome}
+          variant="outline" 
+          className="flex items-center gap-2 bg-white/80 backdrop-blur-sm hover:bg-white hover:shadow-lg transition-all duration-300"
+        >
+          <Home className="w-4 h-4" />
+          Kembali ke Halaman Utama
+        </Button>
+      </div>
+
       {/* Animated Background Elements */}
       <div className="absolute inset-0 -z-10">
         {/* Floating Language Characters */}
@@ -131,7 +150,7 @@ export const Programs = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 mb-4">
             <Sparkles className="w-6 h-6 text-yellow-500" />
-            <span className="text-xl font-semibold text-yellow-600 bg-yellow-100 px-3 py-1 rounded-full">
+            <span className="text-sm font-semibold text-yellow-600 bg-yellow-100 px-3 py-1 rounded-full">
               Program Unggulan
             </span>
             <Sparkles className="w-6 h-6 text-yellow-500" />
@@ -277,13 +296,10 @@ export const Programs = () => {
               <Button 
                 variant="outline" 
                 className="bg-transparent border-white text-white hover:bg-white hover:text-blue-600 hover:scale-105 transition-all duration-300"
-                onClick={() => {
-                  const element = document.getElementById("contact");
-                  element?.scrollIntoView({ behavior: "smooth" });
-                }}
+                onClick={handleBackToHome} // Menggunakan fungsi back to home
               >
-                <Globe className="w-4 h-4 mr-2" />
-                Info Lengkap
+                <Home className="w-4 h-4 mr-2" />
+                Kembali ke Home
               </Button>
             </div>
           </div>
