@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 export const Programs = () => {
   const { ref: programsRef, isVisible: programsVisible } = useScrollAnimation(0.1);
   const { ref: benefitsRef, isVisible: benefitsVisible } = useScrollAnimation(0.1);
-  const { ref: galleryRef, isVisible: galleryVisible } = useScrollAnimation(0.1);
   const { ref: testimonialsRef, isVisible: testimonialsVisible } = useScrollAnimation(0.1);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const navigate = useNavigate();
@@ -158,59 +157,27 @@ export const Programs = () => {
     }
   ];
 
-  const galleryImages = [
-    {
-      url: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-      title: "Kelas Intensive",
-      description: "Sesi belajar kelompok dengan instruktur"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-      title: "Diskusi Kelompok",
-      description: "Active learning dalam kelompok kecil"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-      title: "Presentasi Siswa",
-      description: "Mempresentasikan hasil belajar bahasa"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1495465798138-718f86d1a4bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-      title: "Laboratorium Bahasa",
-      description: "Fasilitas audio-visual modern"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1519070994522-88c6b756330e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-      title: "Aktivitas Budaya",
-      description: "Memperkenalkan budaya negara tujuan"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-      title: "Wisuda & Penghargaan",
-      description: "Kelulusan siswa berprestasi"
-    }
-  ];
-
+  // Testimonials dengan foto orang Indonesia yang lebih sesuai
   const testimonials = [
     {
       name: "Rina Santoso",
       program: "Bahasa Jepang N2",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80",
-      text: "Berhasil lolos JLPT N2 dalam 8 bulan. Metode pengajarannya sangat mudah dipahami!",
+      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&crop=face", // Indonesian woman
+      text: "Berhasil lolos JLPT N2 dalam 8 bulan. Metode pengajarannya sangat mudah dipahami dan instruktur sangat berpengalaman!",
       rating: 5
     },
     {
       name: "Ahmad Fauzi",
       program: "Bahasa Korea TOPIK 4",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80",
-      text: "Sekarang bisa bekerja di perusahaan Korea dengan percaya diri. Terima kasih!",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face", // Indonesian man
+      text: "Sekarang bisa bekerja di perusahaan Korea dengan percaya diri. Materi pembelajaran sangat relevan dengan dunia kerja!",
       rating: 5
     },
     {
       name: "Maria Wijaya",
       program: "Bahasa Mandarin HSK 5",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80",
-      text: "Dari nol sampai bisa negosiasi bisnis dalam 1 tahun. Amazing!",
+      avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&h=200&fit=crop&crop=face", // Indonesian woman
+      text: "Dari nol sampai bisa negosiasi bisnis dalam 1 tahun. Pengajar native speaker sangat membantu pelafalan!",
       rating: 5
     }
   ];
@@ -523,7 +490,7 @@ export const Programs = () => {
           ))}
         </div>
 
-        {/* Class Types Section */}
+        {/* Class Types Section - DIUBAH: Harga dan detail dihilangkan */}
         <div className="mb-20">
           <h3 className="text-3xl font-bold text-center mb-12">Pilihan Jenis Kelas</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -535,15 +502,7 @@ export const Programs = () => {
                   </div>
                   <h4 className="font-bold text-lg mb-2">{classType.type}</h4>
                   <p className="text-sm text-muted-foreground mb-4">{classType.description}</p>
-                  <div className="space-y-2 mb-4">
-                    {classType.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-xs">
-                        <CheckCircle className="w-3 h-3 text-primary" />
-                        <span>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="font-bold text-primary text-lg">{classType.price}</div>
+                  {/* Harga dan detail fitur dihapus */}
                 </CardContent>
               </Card>
             ))}
@@ -596,39 +555,7 @@ export const Programs = () => {
           ))}
         </div>
 
-        {/* Gallery Section */}
-        <div ref={galleryRef} className="mb-20">
-          <h3 className="text-3xl font-bold text-center mb-4">Galeri Kegiatan Belajar</h3>
-          <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-            Dokumentasi momen-momen seru dan inspiratif dari berbagai aktivitas belajar di kelas kami
-          </p>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {galleryImages.map((image, index) => (
-              <div
-                key={index}
-                className={`relative group overflow-hidden rounded-xl cursor-pointer transform transition-all duration-700 ${
-                  galleryVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
-                }`}
-                style={{ transitionDelay: `${index * 0.1}s` }}
-              >
-                <img
-                  src={image.url}
-                  alt={image.title}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <div className="text-white">
-                    <h4 className="font-semibold text-lg mb-1">{image.title}</h4>
-                    <p className="text-sm text-white/80">{image.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Testimonials Section */}
+        {/* Testimonials Section dengan foto alumni Indonesia yang lebih sesuai */}
         <div ref={testimonialsRef} className="mb-20">
           <h3 className="text-3xl font-bold text-center mb-4">Apa Kata Alumni Kami</h3>
           <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
@@ -649,11 +576,11 @@ export const Programs = () => {
                     <img 
                       src={testimonial.avatar} 
                       alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover"
+                      className="w-12 h-12 rounded-full object-cover border-2 border-primary/20"
                     />
                     <div>
-                      <h4 className="font-semibold">{testimonial.name}</h4>
-                      <p className="text-sm text-primary">{testimonial.program}</p>
+                      <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
+                      <p className="text-sm text-primary font-medium">{testimonial.program}</p>
                     </div>
                   </div>
                   
@@ -663,7 +590,7 @@ export const Programs = () => {
                     ))}
                   </div>
                   
-                  <p className="text-muted-foreground text-sm italic">"{testimonial.text}"</p>
+                  <p className="text-muted-foreground text-sm italic leading-relaxed">"{testimonial.text}"</p>
                 </CardContent>
               </Card>
             ))}
