@@ -23,6 +23,15 @@ export const Navigation = () => {
     }
   };
 
+  // Fungsi untuk membuka WhatsApp
+  const openWhatsApp = () => {
+    const phoneNumber = "6282299047778";
+    const message = "Halo, saya ingin konsultasi tentang program di Zen Global Language Institute";
+    const whatsappUrl = `https://api.whatsapp.com/send/?phone=${phoneNumber}&text=${encodeURIComponent(message)}&type=phone_number&app_absent=0`;
+    window.open(whatsappUrl, '_blank');
+    setIsMobileMenuOpen(false);
+  };
+
   const navItems = [
     { label: "Program", id: "programs" },
     { label: "Tentang Kami", id: "about" },
@@ -59,7 +68,8 @@ export const Navigation = () => {
                 {item.label}
               </button>
             ))}
-            <Button variant="hero" size="lg" onClick={() => scrollToSection("contact")}>
+            {/* Tombol Konsultasi Sekarang yang membuka WhatsApp */}
+            <Button variant="hero" size="lg" onClick={openWhatsApp}>
               Konsultasi Sekarang
             </Button>
           </div>
@@ -86,7 +96,8 @@ export const Navigation = () => {
               </button>
             ))}
             <div className="px-4">
-              <Button variant="hero" size="lg" className="w-full" onClick={() => scrollToSection("contact")}>
+              {/* Tombol Konsultasi Sekarang di mobile yang juga membuka WhatsApp */}
+              <Button variant="hero" size="lg" className="w-full" onClick={openWhatsApp}>
                 Konsultasi Sekarang
               </Button>
             </div>
