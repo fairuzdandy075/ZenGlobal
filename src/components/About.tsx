@@ -100,7 +100,7 @@ export const About = () => {
           <div className="inline-flex items-center gap-2 mb-4 animate-bounce">
             <Sparkles className="w-6 h-6 text-yellow-500" />
             <span className="text-sm font-semibold text-yellow-600 bg-yellow-100 px-3 py-1 rounded-full">
-              Terpercaya Sejak 2025
+              
             </span>
             <Sparkles className="w-6 h-6 text-yellow-500" />
           </div>
@@ -116,7 +116,7 @@ export const About = () => {
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Lembaga Kursus & Pelatihan (LKP) terpercaya untuk pendidikan bahasa{' '}
             <span className="font-semibold text-blue-600">Jepang</span> dan{' '}
-            <span className="font-semibold text-red-600">Korea</span> 
+            <span className="font-semibold text-red-600">Korea </span> 
             dengan penyaluran kerja terjamin
           </p>
         </div>
