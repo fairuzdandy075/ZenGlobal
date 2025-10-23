@@ -131,7 +131,7 @@ export const Programs = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 mb-4">
             <Sparkles className="w-6 h-6 text-yellow-500" />
-            <span className="text-sm font-semibold text-yellow-600 bg-yellow-100 px-3 py-1 rounded-full">
+            <span className="text-xl font-semibold text-yellow-600 bg-yellow-100 px-3 py-1 rounded-full">
               Program Unggulan
             </span>
             <Sparkles className="w-6 h-6 text-yellow-500" />

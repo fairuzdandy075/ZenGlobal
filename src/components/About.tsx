@@ -1,4 +1,4 @@
-import { Building2, Users, Globe2, Award, Sparkles, Target, HeartHandshake, Rocket } from "lucide-react";
+import { Building2, Users, Globe2, Award, Sparkles, Target, HeartHandshake, Rocket, Eye, Flag, Languages, GraduationCap, Lightbulb } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useCountUp } from "@/hooks/useCountUp";
@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 export const About = () => {
   const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation(0.1);
   const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation(0.1);
+  const { ref: visiMisiRef, isVisible: visiMisiVisible } = useScrollAnimation(0.1);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
   const count16k = useCountUp(statsVisible ? 16000 : 0, 2000);
@@ -16,8 +17,8 @@ export const About = () => {
   const stats = [
     { 
       icon: Building2, 
-      value: "Oktober 2025", 
-      label: "Berdiri Sejak", 
+      value: "Bersertifikasi", 
+      label: "Tepecaya", 
       animated: false,
       color: "from-blue-500 to-cyan-500",
       description: "Memulai perjalanan pendidikan bahasa berkualitas"
@@ -46,6 +47,41 @@ export const About = () => {
       color: "from-purple-500 to-pink-500",
       description: "Pengalaman puluhan tahun di industri"
     },
+  ];
+
+  // Data untuk misi
+  const misiItems = [
+    {
+      icon: Languages,
+      title: "Program Berkualitas",
+      description: "Menyediakan program kursus bahasa Jepang dan Korea yang berkualitas, relevan, dan menyenangkan bagi semua kalangan"
+    },
+    {
+      icon: GraduationCap,
+      title: "Pemahaman Lintas Budaya",
+      description: "Membangun pemahaman lintas budaya melalui pendekatan belajar yang komunikatif dan kontekstual"
+    },
+    {
+      icon: Users,
+      title: "Pengajar Profesional",
+      description: "Menghadirkan pengajar profesional, berpengalaman, dan fasih dalam budaya serta bahasa yang diajarkan"
+    },
+    {
+      icon: Lightbulb,
+      title: "Metode Modern & Ekspansi Global",
+      description: "Mengembangkan metode pengajaran modern yang didukung teknologi, praktik nyata dan erbuka untuk ekspansi bahasa asing lain sesuai kebutuhan global masa depan"
+    },
+    {
+      icon: Award,
+      title: "Standar Internasional",
+      description: "Menyediakan jalur pembelajaran berstandar internasional, termasuk persiapan ujian seperti JLPT dan TOPIK"
+    },
+    {
+      icon: Globe2,
+      title: "Jembatan Internasional",
+      description: "Menjadi jembatan bagi peserta didik untuk meraih peluang studi, kerja, atau kolaborasi internasional, khususnya di Jepang dan Korea"
+    },
+    
   ];
 
   // Fungsi untuk redirect ke WhatsApp
@@ -90,28 +126,28 @@ export const About = () => {
           }}
         />
         
-        <div className="absolute w-80 h-80 bg-gradient-to-r from-green-200 to-cyan-200 rounded-full blur-3xl opacity-20 animate-bounce right-10 top-10" />
-        <div className="absolute w-72 h-72 bg-gradient-to-r from-orange-200 to-red-200 rounded-full blur-3xl opacity-20 animate-ping left-20 bottom-20" />
+        <div className="absolute w-80 h-80 bg-gradient-to-r from-green-200 to-cyan-200 rounded-full blur-3xl opacity-20 right-10 top-10" />
+        <div className="absolute w-72 h-72 bg-gradient-to-r from-orange-200 to-red-200 rounded-full blur-3xl opacity-20 left-20 bottom-20" />
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Animated Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 mb-4 animate-bounce">
+          <div className="inline-flex items-center gap-2 mb-4">
             <Sparkles className="w-6 h-6 text-yellow-500" />
-            <span className="text-sm font-semibold text-yellow-600 bg-yellow-100 px-3 py-1 rounded-full">
-              
+            <span className="text-xl font-semibold text-yellow-600 bg-yellow-100 px-3 py-1 rounded-full">
+              Tentang
             </span>
             <Sparkles className="w-6 h-6 text-yellow-500" />
           </div>
           
           <h2 className="text-4xl md:text-6xl font-bold mb-4 text-foreground relative">
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
-              Tentang Zen Global
+              Zen Global
             </span>
           </h2>
           
-          <div className="w-32 h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 rounded-full animate-pulse" />
+          <div className="w-32 h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 rounded-full" />
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Lembaga Kursus & Pelatihan (LKP) terpercaya untuk pendidikan bahasa{' '}
@@ -140,7 +176,7 @@ export const About = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
               
               <Card 
-                className={`border-2 border-transparent bg-white/80 backdrop-blur-sm group-hover:border-primary/50 group-hover:shadow-2xl group-hover:scale-105 group-hover:-translate-y-3 transition-all duration-500 h-full relative overflow-hidden`}
+                className={`border-2 border-transparent bg-white/80 backdrop-blur-sm group-hover:border-blue-300 group-hover:shadow-2xl group-hover:scale-105 group-hover:-translate-y-3 transition-all duration-500 h-full relative overflow-hidden`}
               >
                 {/* Background Gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
@@ -154,11 +190,11 @@ export const About = () => {
                     {stat.value}
                   </div>
                   
-                  <div className="text-sm font-semibold text-primary mb-2 uppercase tracking-wide">
+                  <div className="text-sm font-semibold text-blue-600 mb-2 uppercase tracking-wide">
                     {stat.label}
                   </div>
                   
-                  <div className="text-xs text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="text-xs text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {stat.description}
                   </div>
                 </CardContent>
@@ -178,20 +214,20 @@ export const About = () => {
           <div className={`space-y-6 transition-all duration-700 ${
             contentVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
           }`}>
-            <Card className="border-2 border-primary/10 bg-white/80 backdrop-blur-sm hover:border-primary/30 hover:shadow-2xl hover:scale-105 transition-all duration-500 group relative overflow-hidden">
+            <Card className="border-2 border-blue-200 bg-white/80 backdrop-blur-sm hover:border-blue-300 hover:shadow-2xl hover:scale-105 transition-all duration-500 group relative overflow-hidden">
               <div className="absolute top-4 left-4">
-                <Target className="w-6 h-6 text-primary animate-pulse" />
+                <Target className="w-6 h-6 text-blue-600" />
               </div>
               <CardContent className="p-8 pt-12">
-                <h3 className="text-2xl font-bold mb-4 text-primary flex items-center gap-2">
+                <h3 className="text-2xl font-bold mb-4 text-blue-600 flex items-center gap-2">
                   Profil Lembaga
                 </h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-lg">
-                  Lembaga Kursus & Pelatihan (LKP) <span className="font-semibold text-primary">Zen Global Language Institute</span> didirikan dengan tujuan 
+                <p className="text-gray-700 leading-relaxed mb-4 text-lg">
+                  Lembaga Kursus & Pelatihan (LKP) <span className="font-semibold text-blue-600">Zen Global Language Institute</span> didirikan dengan tujuan 
                   menyediakan layanan pendidikan bahasa Jepang dan Korea secara non-formal bagi masyarakat umum, 
                   dengan pendekatan bertahap dari dasar hingga mahir.
                 </p>
-                <p className="text-muted-foreground leading-relaxed text-lg">
+                <p className="text-gray-700 leading-relaxed text-lg">
                   Kami mendukung kebutuhan studi, pekerjaan, dan pengembangan minat pribadi tenaga kerja 
                   Indonesia yang kompeten dan berdaya saing global.
                 </p>
@@ -203,21 +239,21 @@ export const About = () => {
           <div className={`space-y-6 transition-all duration-700 delay-300 ${
             contentVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
           }`}>
-            <Card className="border-2 border-accent/20 bg-gradient-to-br from-accent/5 to-transparent hover:border-accent/40 hover:shadow-2xl hover:scale-105 transition-all duration-500 group relative overflow-hidden">
+            <Card className="border-2 border-green-200 bg-gradient-to-br from-green-50 to-transparent hover:border-green-300 hover:shadow-2xl hover:scale-105 transition-all duration-500 group relative overflow-hidden">
               <div className="absolute top-4 left-4">
-                <HeartHandshake className="w-6 h-6 text-accent animate-pulse" />
+                <HeartHandshake className="w-6 h-6 text-green-600" />
               </div>
               <CardContent className="p-8 pt-12">
-                <h3 className="text-2xl font-bold mb-4 text-primary flex items-center gap-2">
+                <h3 className="text-2xl font-bold mb-4 text-blue-600 flex items-center gap-2">
                   Mitra Strategis
                 </h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-lg">
-                  LKP Zen Global resmi berdiri pada Oktober 2025 dan telah bermitra dengan{" "}
-                  <span className="font-semibold text-primary bg-primary/10 px-2 py-1 rounded">PT. INTERSOLUSI INDONESIA</span>, 
+                <p className="text-gray-700 leading-relaxed mb-4 text-lg">
+                  LKP Zen Global resmi berdiri dan telah bermitra dengan{" "}
+                  <span className="font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">PT. INTERSOLUSI INDONESIA</span>, 
                   perusahaan dengan pengalaman luas sejak tahun 1995 dalam bidang rekrutmen dan 
                   penempatan tenaga kerja ke luar negeri.
                 </p>
-                <p className="text-muted-foreground leading-relaxed text-lg">
+                <p className="text-gray-700 leading-relaxed text-lg">
                   Sejak berdiri, PT. INTERSOLUSI INDONESIA telah menempatkan lebih dari 16.000 tenaga 
                   kerja Indonesia ke berbagai negara seperti Jepang, Korea Selatan, Taiwan, Malaysia, 
                   dan Singapura.
@@ -225,21 +261,100 @@ export const About = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-primary/10 bg-white/80 backdrop-blur-sm hover:border-primary/30 hover:shadow-2xl hover:scale-105 transition-all duration-500 group relative overflow-hidden">
-              <div className="absolute top-4 left-4">
-                <Rocket className="w-6 h-6 text-primary animate-pulse" />
+         
+          </div>
+        </div>
+
+        {/* Visi & Misi Section */}
+        <div 
+          ref={visiMisiRef}
+          className={`mt-20 transition-all duration-1000 ${
+            visiMisiVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          {/* Visi Section */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <Eye className="w-6 h-6 text-blue-600" />
+              <span className="text-xl font-semibold text-blue-600 bg-blue-100 px-4 py-2 rounded-full">
+                Visi Kami
+              </span>
+              <Eye className="w-6 h-6 text-blue-600" />
+            </div>
+            
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-100 rounded-2xl p-8 max-w-4xl mx-auto border-2 border-blue-200">
+              <p className="text-2xl md:text-3xl font-light text-gray-800 leading-relaxed italic">
+                "Menjadi pusat kursus bahasa asing yang unggul dan berwawasan global, dengan spesialisasi 
+                budaya dan bahasa Asia Timur, untuk membentuk generasi yang siap bersaing dan terhubung 
+                di dunia internasional."
+              </p>
+            </div>
+          </div>
+
+          {/* Misi Section */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 mb-8">
+              <Flag className="w-6 h-6 text-green-600" />
+              <span className="text-xl font-semibold text-green-600 bg-green-100 px-4 py-2 rounded-full">
+                Misi Kami
+              </span>
+              <Flag className="w-6 h-6 text-green-600" />
+            </div>
+          </div>
+
+          {/* Misi Items Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {misiItems.map((item, index) => (
+              <div
+                key={index}
+                className={`transform transition-all duration-700 ${
+                  visiMisiVisible 
+                    ? "opacity-100 translate-y-0 scale-100" 
+                    : "opacity-0 translate-y-10 scale-95"
+                }`}
+                style={{ transitionDelay: `${index * 0.1}s` }}
+              >
+                <Card className="border-2 border-green-100 bg-white/80 backdrop-blur-sm hover:border-green-300 hover:shadow-xl hover:scale-105 transition-all duration-500 h-full group">
+                  <CardContent className="p-6 text-center">
+                    <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300 shadow-lg">
+                      <item.icon className="w-7 h-7 text-white" />
+                    </div>
+                    
+                    <h4 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-green-600 transition-colors">
+                      {item.title}
+                    </h4>
+                    
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </CardContent>
+                </Card>
               </div>
-              <CardContent className="p-8 pt-12">
-                <h3 className="text-2xl font-bold mb-4 text-primary flex items-center gap-2">
-                  Visi Kami
-                </h3>
-                <p className="text-muted-foreground leading-relaxed italic text-lg bg-gradient-to-r from-primary/5 to-transparent p-4 rounded-lg border-l-4 border-primary">
-                  "Menjadi pusat kursus bahasa asing yang unggul dan berwawasan global, dengan spesialisasi 
-                  budaya dan bahasa Asia Timur, untuk membentuk generasi yang siap bersaing dan terhubung 
-                  di dunia internasional."
-                </p>
-              </CardContent>
-            </Card>
+            ))}
+          </div>
+
+          {/* Value Proposition */}
+          <div className="bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl p-8 text-white text-center">
+            <h3 className="text-2xl font-bold mb-4">Komitmen Kami</h3>
+            <p className="text-lg mb-6 opacity-90 max-w-3xl mx-auto">
+              Dengan visi yang jelas dan misi yang terstruktur, Zen Global Language Institute berkomitmen 
+              untuk terus memberikan pendidikan bahasa terbaik yang membuka peluang karir global bagi 
+              generasi Indonesia.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6 mt-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold mb-2">100%</div>
+                <p className="opacity-90">Komitmen Kualitas</p>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold mb-2">24/7</div>
+                <p className="opacity-90">Dukungan Pembelajaran</p>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold mb-2">∞</div>
+                <p className="opacity-90">Peluang Tak Terbatas</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -248,7 +363,7 @@ export const About = () => {
           contentVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}>
           <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-2xl p-8 max-w-2xl mx-auto relative overflow-hidden">
-            <div className="absolute inset-0 bg-white/10 animate-pulse" />
+            <div className="absolute inset-0 bg-white/10" />
             <h3 className="text-2xl font-bold mb-4 relative z-10">
               Siap Memulai Perjalanan Bahasa Anda?
             </h3>
