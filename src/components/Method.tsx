@@ -18,7 +18,7 @@ export const Method = () => {
       color: "text-blue-600",
       bgColor: "bg-blue-50",
       image: "/images/methods/komunikatif.jpg",
-      fallbackImage: "https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=250&q=80",
+      fallbackImage: "https://images.unsplash.com/photo-1557734864-c78b6dfef1b1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1334",
       details: [
         "Dialog kehidupan sehari-hari",
         "Role-play situasi nyata", 
