@@ -1,17 +1,23 @@
-import { Building2, Users, Globe2, Award, Sparkles, Target, HeartHandshake, Rocket, Eye, Flag, Languages, GraduationCap, Lightbulb, Star, ChevronDown, Play, Pause, Quote, TargetIcon, Globe, Zap, Users2, Brain, ArrowRight } from "lucide-react";
+import { Building2, Users, Globe2, Award, Sparkles, Target, HeartHandshake, Rocket, Eye, Flag, Languages, GraduationCap, Lightbulb, Star, ChevronDown, Play, Pause, Quote, TargetIcon, Globe, Zap, Users2, Brain, ArrowRight, Image } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useEffect, useState, useRef } from "react";
 
+// Import gambar dari assets
+import kegiatan1 from "@/assets/kegiatan1.jpg";
+import kegiatan2 from "@/assets/kegiatan2.jpg";
+
 export const About = () => {
   const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation(0.1);
   const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation(0.1);
   const { ref: visiMisiRef, isVisible: visiMisiVisible } = useScrollAnimation(0.1);
+  const { ref: photoRef, isVisible: photoVisible } = useScrollAnimation(0.1);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [activeMisi, setActiveMisi] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [activeVisionPart, setActiveVisionPart] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const animationRef = useRef<number | null>(null);
   const visionRef = useRef<number | null>(null);
   
@@ -52,6 +58,22 @@ export const About = () => {
       color: "from-purple-500 to-pink-500",
       description: "Pengalaman puluhan tahun di industri"
     },
+  ];
+
+  // Data foto - menggunakan gambar dari assets
+  const photos = [
+    {
+      src: kegiatan1,
+      alt: "Kegiatan belajar di Zen Global",
+      // title: "Proses Belajar Mengajar",
+      // description: "Suasana interaktif dalam kelas bahasa Jepang dan Korea"
+    },
+    {
+      src: kegiatan2,
+      alt: "Fasilitas Zen Global", 
+      // title: "Fasilitas Modern",
+      // description: "Ruang kelas yang nyaman dan lengkap untuk pembelajaran optimal"
+    }
   ];
 
   const misiItems = [
@@ -258,7 +280,7 @@ export const About = () => {
           <div className="w-40 h-1.5 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 mx-auto mb-8 rounded-full" />
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed bg-white/50 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500">
-            Lembaga Kursus & Pelatihan (LKP) terpercaya untuk pendidikan bahasa{' '}
+            Lembaga Pelatihan Kerja (LPK) terpercaya untuk pendidikan bahasa{' '}
             <span className="font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-lg transition-transform duration-300 hover:scale-105">Jepang</span> dan{' '}
             <span className="font-bold text-red-600 bg-red-50 px-2 py-1 rounded-lg transition-transform duration-300 hover:scale-105">Korea</span> 
             {' '}dengan penyaluran kerja terjamin ke berbagai negara
@@ -342,7 +364,7 @@ export const About = () => {
                   Profil Lembaga
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-6 text-lg bg-white/50 p-4 rounded-xl hover:bg-white transition-colors duration-300">
-                  Lembaga Kursus & Pelatihan (LKP) <span className="font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-lg">Zen Global Language Institute</span> didirikan dengan tujuan 
+                  Lembaga Pelatihan Kerja (LPK) <span className="font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-lg">Zen Global Language Institute</span> didirikan dengan tujuan 
                   menyediakan layanan pendidikan bahasa Jepang dan Korea secara non-formal bagi masyarakat umum, 
                   dengan pendekatan bertahap dari dasar hingga mahir.
                 </p>
@@ -368,7 +390,7 @@ export const About = () => {
                   Mitra Strategis
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-6 text-lg bg-white/50 p-4 rounded-xl hover:bg-white transition-colors duration-300">
-                  LKP Zen Global resmi berdiri dan telah bermitra dengan{" "}
+                  LPK Zen Global resmi berdiri dan telah bermitra dengan{" "}
                   <span className="font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-lg hover:scale-105 transition-transform duration-300 inline-block">PT. INTERSOLUSI INDONESIA</span>, 
                   perusahaan dengan pengalaman luas sejak tahun 1995 dalam bidang rekrutmen dan 
                   penempatan tenaga kerja ke luar negeri.
@@ -380,6 +402,86 @@ export const About = () => {
                 </p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+
+        {/* ===== PHOTO GALLERY SECTION ===== */}
+        <div 
+          ref={photoRef}
+          className={`mb-24 transition-all duration-1000 ${
+            photoVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+          }`}
+        >
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-3 mb-6">
+              <Image className="w-7 h-7 text-purple-500" />
+              <span className="text-xl font-semibold text-purple-600 bg-purple-100 px-4 py-2 rounded-full shadow-lg">
+                Galeri Kami
+              </span>
+              <Image className="w-7 h-7 text-purple-500" />
+            </div>
+            <h3 className="text-4xl font-bold text-gray-800 mb-4">
+              Lihat <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Aktivitas</span> Kami
+            </h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Dokumentasi langsung kegiatan belajar mengajar dan fasilitas pendukung di Zen Global
+            </p>
+          </div>
+
+          {/* Photo Grid */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {photos.map((photo, index) => (
+              <div
+                key={index}
+                className={`transform transition-all duration-700 cursor-pointer ${
+                  photoVisible 
+                    ? "opacity-100 translate-y-0 scale-100" 
+                    : "opacity-0 translate-y-10 scale-95"
+                }`}
+                style={{ transitionDelay: `${index * 0.2}s` }}
+                onClick={() => setSelectedImage(photo.src)}
+              >
+                <Card className="border-2 border-white/50 bg-white/70 backdrop-blur-xl hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group overflow-hidden">
+                  {/* Hover Effect Border */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl opacity-0 group-hover:opacity-100 blur-md transition-all duration-500 -z-10" />
+                  
+                  <CardContent className="p-0 relative">
+                    {/* Image Container */}
+                    <div className="relative h-80 overflow-hidden">
+                      <img
+                        src={photo.src}
+                        alt={photo.alt}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      
+                      {/* Overlay */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500 flex items-end">
+                        <div className="p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                          <h4 className="text-xl font-bold mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
+                            {photo.title}
+                          </h4>
+                          <p className="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-300">
+                            {photo.description}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Zoom Icon */}
+                      <div className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all duration-500">
+                        <Image className="w-5 h-5 text-purple-600" />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
+
+          {/* Caption */}
+          <div className="text-center mt-8">
+            <p className="text-gray-500 text-sm">
+              Klik pada gambar untuk melihat dalam ukuran penuh
+            </p>
           </div>
         </div>
 
@@ -669,6 +771,31 @@ export const About = () => {
           </div>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 bg-black/90 backdrop-blur-lg z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-4xl max-h-full">
+            <button 
+              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors duration-300"
+              onClick={() => setSelectedImage(null)}
+            >
+              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                <span className="text-lg font-bold">×</span>
+              </div>
+            </button>
+            
+            <img
+              src={selectedImage}
+              alt="Preview"
+              className="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };

@@ -114,7 +114,7 @@ const MitraPerusahaan = () => {
             <span className="font-semibold text-blue-600 animate-pulse">
               PT. INTERSOLUSI INDONESIA
             </span>
-            , LKP{' '}
+            , LPK{' '}
             <span className="font-semibold text-green-600">
               Zen Global Language Institute
             </span>{' '}

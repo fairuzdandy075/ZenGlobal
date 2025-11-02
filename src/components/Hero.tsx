@@ -3,17 +3,24 @@ import { ArrowRight, Globe, Users, Award } from "lucide-react";
 import heroImage from "@/assets/hero-classroom.jpg";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Hero = () => {
   const { ref: leftRef, isVisible: leftVisible } = useScrollAnimation(0.2);
   const { ref: rightRef, isVisible: rightVisible } = useScrollAnimation(0.2);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const navigate = useNavigate(); 
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+  };
+
+  // TAMBAHKAN FUNGSI INI - yang sebelumnya hilang
+  const goToProgramPage = () => {
+    navigate('/program');
   };
 
   // Enhanced Background Animation dengan Canvas
@@ -319,7 +326,7 @@ export const Hero = () => {
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 Kursus Bahasa Jepang & Korea dengan{" "}
-                <span className="text-accent bg-gradient-to-r from-accent to-accent-light bg-clip-text text-   animate-gradient-x">
+                <span className="text-accent bg-gradient-to-r from-accent to-accent-light bg-clip-text ">
                   Program Profesional
                 </span>
               </h1>
@@ -329,13 +336,13 @@ export const Hero = () => {
               </p>
             </div>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons - PERBAIKI DI SINI */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 variant="hero" 
                 size="lg" 
                 className="text-lg px-8 py-6 hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl group"
-                onClick={() => scrollToSection("programs")}
+                onClick={goToProgramPage} // DIUBAH: dari gotoprogrampage menjadi goToProgramPage
               >
                 <span className="flex items-center">
                   Lihat Program
